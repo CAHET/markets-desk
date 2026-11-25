@@ -1,4 +1,4 @@
-"""Markets Desk robot: free daily signals, scans, news and dashboard data.
+"""Markets Desk robot: free daily signals, scans, news, paper-trade scoreboard and dashboard data.
 Runs on GitHub Actions. No AI, no Claude. Research only, not advice. Orders are placed by you in Kite.
 Usage: python engine.py news | signals
 Optional secrets (set in GitHub > Settings > Secrets > Actions): GMAIL_USER, GMAIL_APP_PASSWORD, ALERT_TO,
@@ -72,13 +72,14 @@ def index_state():
     return s
 
 
-def stock_scan():
+def stock_scan(frames=None):
     rows = []
     for sym in STOCKS:
         try:
             d = yahoo(sym + ".NS")
         except Exception as ex:
             rows.append({"sym": sym, "error": str(ex)[:80]}); continue
+        if frames is not None: frames[sym] = d
         c = d.c; e200 = ema(c, 200)
         row = {"sym": sym, "close": r1(c.iloc[-1]), "chg": r1((c.iloc[-1] / c.iloc[-2] - 1) * 100),
                "above200": bool(c.iloc[-1] > e200.iloc[-1]), "rsi4": r1(rsi(c, 4).iloc[-1]), "rsi10": r1(rsi(c, 10).iloc[-1]),
@@ -102,10 +103,21 @@ def life_high(d):
         w = d.c.resample("W-FRI").last(); wr = rsi(w, 14)
         weekly = bool((wr.tail(6) <= 50).any())
         tail = d.tail(30); low_i = tail.l.idxmin(); since = len(d.loc[low_i:]) - 1
-        base_high = d.loc[low_i:].h.iloc[:-1].max() if since >= 1 else np.nan
-        setup = trend and weekly and since >= 5
+        base = d.loc[low_i:]
+        base_high = base.h.iloc[:-1].max() if since >= 1 else np.nan
+        o, c, h, l = base.o.values, base.c.values, base.h.values, base.l.values
+        rev = False
+        for k in range(1, len(base) - 1):
+            body = abs(c[k] - o[k]); rng = h[k] - l[k] + 1e-9
+            hammer = (min(o[k], c[k]) - l[k]) >= 2 * body and body / rng < 0.4
+            engulf = c[k] > o[k] and c[k - 1] < o[k - 1] and c[k] >= o[k - 1] and o[k] <= c[k - 1]
+            harami = c[k] > o[k] and c[k - 1] < o[k - 1] and c[k] < o[k - 1] and o[k] > c[k - 1]
+            rev = rev or hammer or engulf or harami
+        tr = pd.concat([d.h - d.l, (d.h - d.c.shift()).abs(), (d.l - d.c.shift()).abs()], axis=1).max(axis=1)
+        atr14 = tr.ewm(alpha=1 / 14, adjust=False).mean().iloc[-1]
+        setup = trend and weekly and since >= 5 and rev
         trig = bool(setup and d.c.iloc[-1] > base_high and d.c.iloc[-2] <= base_high)
-        return {"lh_setup": bool(setup), "lh_trigger": trig, "lh_base_high": r1(base_high), "lh_stop": r1(tail.l.min())}
+        return {"lh_setup": bool(setup), "lh_trigger": trig, "lh_base_high": r1(base_high), "lh_stop": r1(tail.l.min() - atr14)}
     except Exception:
         return {"lh_setup": False, "lh_trigger": False}
 
@@ -139,6 +151,69 @@ def send(subject, body):
         requests.post(f"https://api.telegram.org/bot{tok}/sendMessage", data={"chat_id": chat, "text": f"{subject}\n\n{body}"[:4000]}, timeout=20)
 
 
+RULES = {"S04-NIFTY": "RSI(10)<30 above 200-EMA; exit RSI(10)>40 or 7 days",
+         "S04-STK-RSI4": "RSI(4)<10 above 200-EMA; exit RSI(4)>40 or 10 days",
+         "S04-STK-BASE": "RSI(10)<30 above 200-EMA; exit RSI(10)>40 or 7 days",
+         "LH": "Life-High Pullback; stop pivot low - 1 ATR, trail highest high - 10 ATR(22)"}
+
+
+def paper_update(data, frames, idx_frame, rows, idx):
+    """Paper-trades every signal (entry and exit at next open) and keeps live stats per strategy
+    (closed trades plus open trades at today's price). With 10+ trades and profit factor below 1 it is marked OFF."""
+    p = data.setdefault("paper", {"open": [], "closed": []})
+    get = lambda sym: idx_frame if sym == "NIFTY" else frames.get(sym)
+    still = []
+    for t in p["open"]:
+        d = get(t["sym"])
+        if d is None: still.append(t); continue
+        after = d[d.index > pd.Timestamp(t["signal"])]
+        if t.get("entry") is None:
+            if len(after) == 0: still.append(t); continue
+            t["entry_date"] = str(after.index[0].date()); t["entry"] = r1(after.o.iloc[0]); t["peak"] = t["entry"]
+        held = d[d.index >= pd.Timestamp(t["entry_date"])]
+        if t.get("exit_signal"):
+            nxt = d[d.index > pd.Timestamp(t["exit_signal"])]
+            if len(nxt):
+                t["exit_date"] = str(nxt.index[0].date()); t["exit"] = r1(nxt.o.iloc[0])
+                t["ret"] = round((t["exit"] / t["entry"] - 1) * 100 - 0.24, 2); p["closed"].append(t); continue
+            still.append(t); continue
+        c = d.c; n = len(held); last = str(d.index[-1].date())
+        if t["strat"] == "LH":
+            t["peak"] = max(t["peak"], float(held.h.max()))
+            tr = pd.concat([d.h - d.l, (d.h - c.shift()).abs(), (d.l - c.shift()).abs()], axis=1).max(axis=1)
+            trail = t["peak"] - 10 * float(tr.ewm(alpha=1 / 22, adjust=False).mean().iloc[-1])
+            if c.iloc[-1] < max(t["stop"], trail): t["exit_signal"] = last
+        else:
+            k, lvl, hmax = (4, 40, 10) if t["strat"] == "S04-STK-RSI4" else (10, 40, 7)
+            if rsi(c, k).iloc[-1] > lvl or n >= hmax: t["exit_signal"] = last
+        still.append(t)
+    p["open"] = still
+    have = {(t["strat"], t["sym"]) for t in p["open"]}
+    new = []
+    if idx["s04_entry"]: new.append(("S04-NIFTY", "NIFTY", None))
+    for r in rows:
+        if r.get("s04_rsi4"): new.append(("S04-STK-RSI4", r["sym"], None))
+        if r.get("s04_base"): new.append(("S04-STK-BASE", r["sym"], None))
+        if r.get("lh_trigger"): new.append(("LH", r["sym"], r.get("lh_stop")))
+    for strat, sym, stop in new:
+        if (strat, sym) not in have:
+            p["open"].append({"strat": strat, "sym": sym, "signal": idx["date"], "entry": None, "stop": stop})
+    for t in p["open"]:
+        d = get(t["sym"])
+        if d is not None and t.get("entry"): t["mtm"] = round((float(d.c.iloc[-1]) / t["entry"] - 1) * 100, 2)
+    stats = {}
+    for strat in RULES:
+        rr = [t["ret"] for t in p["closed"] if t["strat"] == strat] + [t["mtm"] for t in p["open"] if t["strat"] == strat and t.get("mtm") is not None]
+        w = [x for x in rr if x > 0]; l = [x for x in rr if x <= 0]
+        pf = round(sum(w) / -sum(l), 2) if l and sum(l) < 0 else None
+        status = "OFF - losing on paper" if len(rr) >= 10 and pf is not None and pf < 1 else ("ON" if len(rr) >= 10 else "collecting trades")
+        stats[strat] = {"rule": RULES[strat], "closed": sum(t["strat"] == strat for t in p["closed"]), "counted": len(rr), "open": sum(t["strat"] == strat for t in p["open"]),
+                        "win_pct": round(100 * len(w) / len(rr)) if rr else None, "avg_pct": round(sum(rr) / len(rr), 2) if rr else None,
+                        "pf": pf, "status": status}
+    p["closed"] = p["closed"][-500:]
+    data["paper_stats"] = stats
+
+
 FOOT = "\n\nRule outputs from backtests and public headlines, not advice. You place orders yourself in Kite. Dashboard: https://cahet.github.io/markets-desk/"
 
 
@@ -155,7 +230,8 @@ def main(mode):
         lines += [f"- {n['title']}" + (f"  [{', '.join(n['stocks'])}]" if n['stocks'] else "") + f"\n  {n['link']}" for n in nw[:12]]
         send(f"Markets news - {now:%d %b %Y}", "\n".join(lines) + FOOT)
     else:
-        rows = stock_scan(); data["stocks"] = rows; data["scan_time"] = data["updated"]
+        frames = {}
+        rows = stock_scan(frames); data["stocks"] = rows; data["scan_time"] = data["updated"]
         sig = [r for r in rows if r.get("s04_rsi4") or r.get("s04_base")]
         near = [r for r in rows if r.get("near") and r not in sig]
         lh = [r for r in rows if r.get("lh_trigger")]
@@ -169,6 +245,10 @@ def main(mode):
         hist.append({"date": idx["date"], "nifty": idx["nifty"], "rsi10": idx["rsi10"], "entry": idx["s04_entry"],
                      "stocks": [r["sym"] for r in sig], "lh": [r["sym"] for r in lh]})
         data["signal_log"] = hist[-250:]
+        try:
+            paper_update(data, frames, yahoo("^NSEI"), rows, idx)
+        except Exception as ex:
+            data["paper_error"] = str(ex)[:200]
         if idx["s04_entry"] or sig or lh:
             send(f"Markets signal - {now:%d %b %Y}", "\n\n".join(parts) + "\n\nRulebook: max loss Rs 400 per trade; stop goes in with the order." + FOOT)
     json.dump(data, open("data.json", "w"), indent=1, default=str)
