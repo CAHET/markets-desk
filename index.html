@@ -24,8 +24,9 @@ table{width:100%;border-collapse:collapse;font-size:15px}th,td{padding:7px 6px;b
 <p class="note">S04 = above 200-day EMA and RSI dip (RSI(4)&lt;10 or RSI(10)&lt;30). LH = Life-High Pullback: trigger = close above the base high. Rule outputs, not advice.</p>
 <div class="scroll"><table id="tbl"><thead><tr><th>Stock</th><th>Status</th><th>Close</th><th>Day %</th><th>RSI(4)</th><th>RSI(10)</th><th>LH base high</th><th>LH stop</th></tr></thead><tbody></tbody></table></div>
 </div></section>
-<section class="band sea"><div class="wrap"><h2>Morning headlines</h2><div class="note" id="nt"></div><ul class="news" id="news"></ul></div></section>
-<section class="band"><div class="wrap"><h2>Signal log</h2><div class="scroll"><table id="log"><thead><tr><th>Date</th><th>Nifty</th><th>RSI(10)</th><th>Nifty signal</th><th>Stock signals</th><th>LH triggers</th></tr></thead><tbody></tbody></table></div>
+<section class="band sea"><div class="wrap"><h2>Paper-trade scoreboard (robot supervisor)</h2><p class="note">Every signal is paper-traded automatically (entry and exit at next open, 0.24% costs). With 10+ trades and profit factor below 1 a strategy is marked OFF. Open trades count at today's price.</p><div class="scroll"><table id="paper"><thead><tr><th>Strategy</th><th>Status</th><th>Closed</th><th>Open</th><th>Win %</th><th>Avg %</th><th>PF</th><th>Rule</th></tr></thead><tbody></tbody></table></div></div></section>
+<section class="band"><div class="wrap"><h2>Morning headlines</h2><div class="note" id="nt"></div><ul class="news" id="news"></ul></div></section>
+<section class="band sea"><div class="wrap"><h2>Signal log</h2><div class="scroll"><table id="log"><thead><tr><th>Date</th><th>Nifty</th><th>RSI(10)</th><th>Nifty signal</th><th>Stock signals</th><th>LH triggers</th></tr></thead><tbody></tbody></table></div>
 <p class="note">Research only, not advice. Data: Yahoo Finance daily prices and public news feeds. You place orders yourself in Kite.</p></div></section>
 <script>{
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -43,6 +44,8 @@ fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{
  const S=(d.stocks||[]).filter(r=>!r.error).map(r=>Object.assign({},r,{st:(r.s04_rsi4||r.s04_base)?'S04 signal':r.lh_trigger?'LH trigger':r.near?'Near S04':r.lh_setup?'LH setup':''})).filter(r=>r.st);
  S.sort((a,b)=>ord[a.st]-ord[b.st]);
  $('tbl').tBodies[0].innerHTML=S.length?S.map(r=>'<tr>'+td(esc(r.sym))+td(esc(r.st),(r.st=='S04 signal'||r.st=='LH trigger')?'sig':'')+td(esc(r.close),'n')+td(esc(r.chg),'n '+(r.chg>=0?'pos':'neg'))+td(esc(r.rsi4),'n')+td(esc(r.rsi10),'n')+td(esc(r.lh_base_high),'n')+td(esc(r.lh_stop),'n')+'</tr>').join(''):'<tr><td colspan="8">No signals or setups today.</td></tr>';
+ const P=d.paper_stats||{};
+ $('paper').tBodies[0].innerHTML=Object.keys(P).map(k=>{const v=P[k];return '<tr>'+td(esc(k))+td(esc(v.status),v.status.indexOf('OFF')==0?'neg':'')+td(esc(v.closed),'n')+td(esc(v.open),'n')+td(esc(v.win_pct),'n')+td(esc(v.avg_pct),'n')+td(esc(v.pf),'n')+td(esc(v.rule))+'</tr>'}).join('')||'<tr><td colspan="8">Starts with the next signal.</td></tr>';
  $('nt').textContent=d.news_time?'Collected '+d.news_time:'';
  $('news').innerHTML=(d.news||[]).slice(0,25).map(n=>'<li><a href="'+esc(n.link)+'">'+esc(n.title)+'</a>'+(n.stocks||[]).map(s=>'<span class="tag">'+esc(s)+'</span>').join('')+' <span class="note">'+esc(n.src)+'</span></li>').join('')||'<li>No headlines yet (first run 8:45 AM).</li>';
  $('log').tBodies[0].innerHTML=(d.signal_log||[]).slice(-30).reverse().map(l=>'<tr>'+td(esc(l.date))+td(esc(l.nifty),'n')+td(esc(l.rsi10),'n')+td(l.entry?'<b class="sig">ENTRY</b>':'-')+td(esc((l.stocks||[]).join(', ')))+td(esc((l.lh||[]).join(', ')))+'</tr>').join('');
