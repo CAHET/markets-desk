@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markets Desk</title>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#fbfbf2,#0d1c24);--sea:light-dark(#bfe3ee,#123341);--ink:light-dark(#13242e,#e7f1f4);--mut:light-dark(#4c6470,#9db6bf);--line:light-dark(#d7d8c8,#24414e);--card:light-dark(#fff,#112632);--mag:#d6127e;--up:light-dark(#0a7a4e,#3fcf8e);--dn:light-dark(#b8432f,#ff7a66)}
+*{box-sizing:border-box;min-width:0}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Overpass,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(20px,4vw,48px) max(5vw,16px)}.wrap{max-width:1240px;margin:0 auto}.sea{background:var(--sea)}
+h1{font-weight:800;font-size:clamp(28px,4.2vw,46px);line-height:1.05;margin:0 0 6px;text-wrap:balance}h2{font-size:22px;margin:0 0 10px}
+.note{font-size:13px;color:var(--mut)}nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px}nav a{color:var(--ink);font-weight:600}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}.k div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}.k b{display:block;font-size:22px;white-space:nowrap}
+.sig{color:var(--mag)}.pos{color:var(--up)}.neg{color:var(--dn)}
+table{width:100%;border-collapse:collapse;font-size:15px}th,td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left}th{font-size:13px;color:var(--mut)}td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}ul.news{padding-left:18px}ul.news li{margin:6px 0}.tag{font-size:12px;border:1px solid var(--line);border-radius:6px;padding:0 5px;margin-left:4px}
+</style></head><body>
+<section class="band sea"><div class="wrap">
+<h1 id="verdict">Loading today's market check...</h1>
+<div class="note" id="upd"></div>
+<div class="k" id="kpi"></div>
+<nav><a href="https://claude.ai/artifact/B5MLvvTgyhQBwcqhPc4Fuu">P&amp;L planner</a><a href="STRATEGIES.html">All strategies</a><a href="RULEBOOK.html">Trading rulebook</a><a href="https://github.com/CAHET/markets-desk/actions">Robot runs</a></nav>
+</div></section>
+<section class="band"><div class="wrap">
+<h2>Stock signals and setups</h2>
+<p class="note">S04 = above 200-day EMA and RSI dip (RSI(4)&lt;10 or RSI(10)&lt;30). LH = Life-High Pullback: trigger = close above the base high. Rule outputs, not advice.</p>
+<div class="scroll"><table id="tbl"><thead><tr><th>Stock</th><th>Status</th><th>Close</th><th>Day %</th><th>RSI(4)</th><th>RSI(10)</th><th>LH base high</th><th>LH stop</th></tr></thead><tbody></tbody></table></div>
+</div></section>
+<section class="band sea"><div class="wrap"><h2>Morning headlines</h2><div class="note" id="nt"></div><ul class="news" id="news"></ul></div></section>
+<section class="band"><div class="wrap"><h2>Signal log</h2><div class="scroll"><table id="log"><thead><tr><th>Date</th><th>Nifty</th><th>RSI(10)</th><th>Nifty signal</th><th>Stock signals</th><th>LH triggers</th></tr></thead><tbody></tbody></table></div>
+<p class="note">Research only, not advice. Data: Yahoo Finance daily prices and public news feeds. You place orders yourself in Kite.</p></div></section>
+<script>{
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=id=>document.getElementById(id);
+const td=(v,c)=>'<td'+(c?' class="'+c+'"':'')+'>'+v+'</td>';
+fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{
+ const i=d.index||{};
+ $('verdict').textContent=i.s04_entry?'Nifty S04 ENTRY signal today':i.s04_near?'Nifty close to an S04 signal':'No Nifty S04 signal today';
+ if(i.s04_entry)$('verdict').classList.add('sig');
+ $('upd').textContent='Updated '+(d.updated||'')+' - prices as of '+(i.date||'');
+ const k=[['Nifty',i.nifty+' ('+i.nifty_chg+'%)'],['Above 200-EMA',i.trend_up?'Yes':'No'],['RSI(10)',i.rsi10],['RSI(3)',i.rsi3],['India VIX',i.vix],['Bank Nifty',i.banknifty]];
+ if(i.distribution_days_25!=null)k.push(['Distribution days (25)',i.distribution_days_25]);
+ $('kpi').innerHTML=k.map(x=>'<div><span class="note">'+esc(x[0])+'</span><b>'+esc(x[1])+'</b></div>').join('');
+ const ord={'S04 signal':0,'LH trigger':1,'Near S04':2,'LH setup':3};
+ const S=(d.stocks||[]).filter(r=>!r.error).map(r=>Object.assign({},r,{st:(r.s04_rsi4||r.s04_base)?'S04 signal':r.lh_trigger?'LH trigger':r.near?'Near S04':r.lh_setup?'LH setup':''})).filter(r=>r.st);
+ S.sort((a,b)=>ord[a.st]-ord[b.st]);
+ $('tbl').tBodies[0].innerHTML=S.length?S.map(r=>'<tr>'+td(esc(r.sym))+td(esc(r.st),(r.st=='S04 signal'||r.st=='LH trigger')?'sig':'')+td(esc(r.close),'n')+td(esc(r.chg),'n '+(r.chg>=0?'pos':'neg'))+td(esc(r.rsi4),'n')+td(esc(r.rsi10),'n')+td(esc(r.lh_base_high),'n')+td(esc(r.lh_stop),'n')+'</tr>').join(''):'<tr><td colspan="8">No signals or setups today.</td></tr>';
+ $('nt').textContent=d.news_time?'Collected '+d.news_time:'';
+ $('news').innerHTML=(d.news||[]).slice(0,25).map(n=>'<li><a href="'+esc(n.link)+'">'+esc(n.title)+'</a>'+(n.stocks||[]).map(s=>'<span class="tag">'+esc(s)+'</span>').join('')+' <span class="note">'+esc(n.src)+'</span></li>').join('')||'<li>No headlines yet (first run 8:45 AM).</li>';
+ $('log').tBodies[0].innerHTML=(d.signal_log||[]).slice(-30).reverse().map(l=>'<tr>'+td(esc(l.date))+td(esc(l.nifty),'n')+td(esc(l.rsi10),'n')+td(l.entry?'<b class="sig">ENTRY</b>':'-')+td(esc((l.stocks||[]).join(', ')))+td(esc((l.lh||[]).join(', ')))+'</tr>').join('');
+}).catch(()=>{$('verdict').textContent='Waiting for the first robot run';});
+}</script></body></html>
