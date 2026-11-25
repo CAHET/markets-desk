@@ -196,6 +196,7 @@ def paper_update(data, frames, idx_frame, rows, idx):
         if r.get("s04_base"): new.append(("S04-STK-BASE", r["sym"], None))
         if r.get("lh_trigger"): new.append(("LH", r["sym"], r.get("lh_stop")))
     for strat, sym, stop in new:
+        if strat == "LH" and sum(t["strat"] == "LH" for t in p["open"]) >= 10: continue  # model: max 10 positions
         if (strat, sym) not in have:
             p["open"].append({"strat": strat, "sym": sym, "signal": idx["date"], "entry": None, "stop": stop})
     for t in p["open"]:
@@ -234,7 +235,8 @@ def main(mode):
         rows = stock_scan(frames); data["stocks"] = rows; data["scan_time"] = data["updated"]
         sig = [r for r in rows if r.get("s04_rsi4") or r.get("s04_base")]
         near = [r for r in rows if r.get("near") and r not in sig]
-        lh = [r for r in rows if r.get("lh_trigger")]
+        held = {t["sym"] for t in data.get("paper", {}).get("open", []) if t["strat"] == "LH"}
+        lh = [r for r in rows if r.get("lh_trigger") and r["sym"] not in held][:max(0, 10 - len(held))]  # skip held, max 10
         parts = []
         if idx["s04_entry"]: parts.append(f"NIFTY S04 ENTRY SIGNAL: RSI(10) {idx['rsi10']} < 30, Nifty {idx['nifty']} above 200-EMA {idx['ema200']}. Entry next open; exit when RSI(10) > 40 or after 7 days.")
         elif idx["s04_near"]: parts.append(f"NIFTY S04 near signal: RSI(10) {idx['rsi10']} (entry needs < 30).")
