@@ -1,21 +1,20 @@
 {
  "index": {
-  "date": "2026-11-23",
-  "nifty": 25349.7,
-  "ema200": 24056.6,
-  "rsi10": 66.0,
-  "rsi3": 43.1,
+  "date": "2026-11-26",
+  "nifty": 25884.5,
+  "ema200": 24092.2,
+  "rsi10": 73.0,
+  "rsi3": 70.8,
   "trend_up": true,
-  "vix": 17.7,
+  "vix": 16.8,
   "vix_med20": 15.9,
-  "banknifty": 62585.4,
-  "nifty_chg": -1.7,
+  "banknifty": 63535.3,
+  "nifty_chg": 0.3,
   "s04_entry": false,
   "s04_near": false,
-  "s04_exit_zone": true,
-  "distribution_days_25": 3
+  "s04_exit_zone": true
  },
- "updated": "26-Nov-2026 01:00 IST",
+ "updated": "26-Nov-2026 18:09 IST",
  "stocks": [
   {
    "sym": "ADANIENT",
@@ -999,50 +998,275 @@
  },
  "news": [
   {
-   "title": "Maruti Suzuki Share Price Live Updates: Maruti Suzuki Bonus Updates",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/maruti-suzuki-share-price-today-live-updates-25-nov-2026/liveblog/136148282.cms",
+   "title": "Maruti Suzuki Share Price Live Updates: Maruti Suzuki Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/maruti-suzuki-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178767.cms",
    "src": "economictimes.indiatimes.com",
    "stocks": [
     "MARUTI"
    ],
-   "pub": "Wed, 25 Nov 2026 10:03:14"
+   "pub": "Thu, 26 Nov 2026 10:06:49"
   },
   {
-   "title": "HDFC Bank, Reliance Industries among 10 stocks with highest DII holding in Q2. See full list",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/news/hdfc-bank-reliance-industries-among-10-stocks-with-highest-dii-holding-in-q2-see-full-list/slideshow/136126992.cms",
+   "title": "Eternal, Adani Enterprises among 10 stocks with highest FII buying in Q2. How many do you have?",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/news/eternal-adani-enterprises-among-10-stocks-with-highest-fii-buying-in-q2-how-many-do-you-have/slideshow/136178864.cms",
    "src": "economictimes.indiatimes.com",
    "stocks": [
-    "HDFCBANK",
-    "RELIANCE"
+    "ADANIENT"
    ],
-   "pub": "Tue, 24 Nov 2026 11:45:03"
+   "pub": "Thu, 26 Nov 2026 10:06:47"
+  },
+  {
+   "title": "Bajaj Finance Share Price Live Updates: Bajaj Finance Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/bajaj-finance-stock-price-today-live-26-nov-2026/liveblog/136178758.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "BAJFINANCE"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:06:36"
+  },
+  {
+   "title": "Bajaj Auto Share Price Live Updates: Bajaj Auto Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/bajaj-auto-share-price-live-updates-26-nov-2026/liveblog/136178757.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "BAJAJ-AUTO"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:06:34"
+  },
+  {
+   "title": "Axis Bank Share Price Live Updates: Axis Bank Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/axis-bank-share-price-live-updates-26-nov-2026/liveblog/136178746.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "AXISBANK"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:06:23"
+  },
+  {
+   "title": "Grasim Inds Share Price Live Updates: Grasim Inds. Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/grasim-inds-share-price-live-updates-26-nov-2026/liveblog/136178731.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "GRASIM"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:06:10"
   },
   {
    "title": "Cipla Share Price Live Updates: Cipla Stock Price History",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/cipla-stock-price-live-updates-23-nov-2026/liveblog/136092588.cms",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/cipla-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178729.cms",
    "src": "economictimes.indiatimes.com",
    "stocks": [
     "CIPLA"
    ],
-   "pub": "Mon, 23 Nov 2026 12:20:09"
+   "pub": "Thu, 26 Nov 2026 10:06:08"
+  },
+  {
+   "title": "Bharti Airtel Share Price Live Updates: Bharti Airtel Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/bharti-airtel-share-price-today-live-updates-26-nov-2026/liveblog/136178724.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "BHARTIARTL"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:06:02"
+  },
+  {
+   "title": "HCL Tech Share Price Live Updates: HCL Tech Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/hcl-tech-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178722.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "HCLTECH"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:57"
+  },
+  {
+   "title": "ONGC Share Price Live Updates: ONGC Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/ongc-share-price-live-26-nov-2026/liveblog/136178720.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "ONGC"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:55"
   },
   {
    "title": "JSW Steel Share Price Live Updates: JSW Steel Stock Price History",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/jsw-steel-stock-price-today-live-23-nov-2026/liveblog/136092567.cms",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/jsw-steel-share-price-live-updates-26-nov-2026/liveblog/136178706.cms",
    "src": "economictimes.indiatimes.com",
    "stocks": [
     "JSWSTEEL"
    ],
-   "pub": "Mon, 23 Nov 2026 12:19:43"
+   "pub": "Thu, 26 Nov 2026 10:05:43"
+  },
+  {
+   "title": "HUL Share Price Live Updates: HUL Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/hul-share-price-today-live-26-nov-2026/liveblog/136178694.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "HINDUNILVR"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:36"
+  },
+  {
+   "title": "Hindalco Share Price Live Updates: Hindalco Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/hindalco-share-price-today-live-updates-26-nov-2026/liveblog/136178689.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "HINDALCO"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:31"
+  },
+  {
+   "title": "Tech Mahindra Share Price Live Updates: Tech Mahindra Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/tech-mahindra-share-price-today-live-26-nov-2026/liveblog/136178688.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "TECHM",
+    "M&M"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:30"
+  },
+  {
+   "title": "Eicher Motors Share Price Highlights: Eicher Motors Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/eicher-motors-stock-price-today-live-26-nov-2026/liveblog/136178686.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "EICHERMOT"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:25"
+  },
+  {
+   "title": "Asian Paints Share Price Live Updates: Asian Paints Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/asian-paints-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178683.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "ASIANPAINT"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:23"
+  },
+  {
+   "title": "Sun Pharma Share Price Live Updates: Sun Pharma Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/sun-pharma-share-price-live-updates-26-nov-2026/liveblog/136178676.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "SUNPHARMA"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:16"
+  },
+  {
+   "title": "NTPC Share Price Live Updates: NTPC Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/ntpc-share-price-today-live-updates-26-nov-2026/liveblog/136178674.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "NTPC"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:10"
+  },
+  {
+   "title": "ICICI Bank Share Price Live Updates: ICICI Bank Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/icici-bank-share-price-live-26-nov-2026/liveblog/136178672.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "ICICIBANK"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:10"
+  },
+  {
+   "title": "Tata Motors PV Share Price Live Updates: Tata Motors PV Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/tata-motors-pv-share-price-live-updates-26-nov-2026/liveblog/136178654.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "TMPV"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:05:03"
+  },
+  {
+   "title": "Power Grid Share Price Live Updates: Power Grid Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/power-grid-share-price-live-26-nov-2026/liveblog/136178650.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "POWERGRID"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:58"
+  },
+  {
+   "title": "HDFC Life Share Price Live Updates: HDFC Life Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/hdfc-life-stock-price-today-live-26-nov-2026/liveblog/136178649.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "HDFCLIFE"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:57"
+  },
+  {
+   "title": "Adani Ports SEZ Share Price Live Updates: Adani Ports SEZ Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/adani-ports-sez-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178648.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "ADANIPORTS"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:57"
+  },
+  {
+   "title": "Titan Company Share Price Highlights: Titan Company Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/titan-company-share-price-live-updates-26-nov-2026/liveblog/136178638.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "TITAN"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:50"
+  },
+  {
+   "title": "Nestle India Share Price Live Updates: Nestle India Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/nestle-india-share-price-live-updates-26-nov-2026/liveblog/136178636.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "NESTLEIND"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:50"
+  },
+  {
+   "title": "SBI Share Price Live Updates: SBI Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/sbi-share-price-live-26-nov-2026/liveblog/136178634.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "SBIN"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:45"
+  },
+  {
+   "title": "Tata Steel Share Price Live Updates: Tata Steel Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/tata-steel-share-price-today-live-updates-26-nov-2026/liveblog/136178632.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "TATASTEEL"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:44"
+  },
+  {
+   "title": "UltraTech Cem Share Price Live Updates: UltraTech Cem. Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/ultratech-cem-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178621.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "ULTRACEMCO"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:32"
   },
   {
    "title": "Jio Financial Services Share Price Live Updates: Jio Financial Services Stock Price History",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/jio-financial-services-share-price-today-live-updates-23-nov-2026/liveblog/136092528.cms",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/jio-financial-services-stock-price-livestock-price-today-live-updates-26-nov-2026/liveblog/136178620.cms",
    "src": "economictimes.indiatimes.com",
    "stocks": [
     "JIOFIN"
    ],
-   "pub": "Mon, 23 Nov 2026 12:18:52"
+   "pub": "Thu, 26 Nov 2026 10:04:32"
+  },
+  {
+   "title": "Coal India Share Price Live Updates: Coal India Ltd Stock Price History",
+   "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/coal-india-ltd-share-price-live-26-nov-2026/liveblog/136178618.cms",
+   "src": "economictimes.indiatimes.com",
+   "stocks": [
+    "COALINDIA"
+   ],
+   "pub": "Thu, 26 Nov 2026 10:04:32"
   },
   {
    "title": "Mahindra Logistics falls 1.4% on Rs 11.9 crore net loss in Q4",
@@ -1073,264 +1297,69 @@
    "pub": "Tue, 23 Apr 2024 06:15:49"
   },
   {
-   "title": "Nifty FMCG index soars 3%; Dabur, Godrej Consumer, HUL rally up to 8%",
-   "link": "https://www.business-standard.com/markets/news/nifty-fmcg-index-soars-3-dabur-godrej-consumer-hul-rally-up-to-8-126112500621_1.html",
+   "title": "IndiGo up 22% in a month; Anand Rathi sees macro tailwinds aiding recovery",
+   "link": "https://www.business-standard.com/markets/news/indigo-up-22-in-a-month-anand-rathi-sees-macro-tailwinds-aiding-recovery-126112600733_1.html",
    "src": "business-standard.com",
    "stocks": [
-    "HINDUNILVR"
+    "INDIGO"
    ],
-   "pub": "Wed, 25 Nov 2026 15:15:04"
+   "pub": "Thu, 26 Nov 2026 15:14:58"
   },
   {
-   "title": "L&T jumps over 2% on \u20b92,500 crore battery storage project win in Gujarat",
-   "link": "https://www.business-standard.com/markets/news/l-t-jumps-over-2-on-2-500-crore-battery-storage-project-win-in-gujarat-126112500448_1.html",
+   "title": "HDFC Bank vaults 30% from Oct low; surpasses Airtel in market cap ranking",
+   "link": "https://www.business-standard.com/markets/news/hdfc-bank-share-price-hdfc-bank-vaults-30-from-oct-low-surpasses-airtel-in-market-cap-ranking-126112600392_1.html",
    "src": "business-standard.com",
-   "stocks": [
-    "LT"
-   ],
-   "pub": "Wed, 25 Nov 2026 13:20:29"
-  },
-  {
-   "title": "Block deal impact: Piramal Pharma down 7% on trades of 100 mn shares on BSE",
-   "link": "https://www.business-standard.com/markets/news/block-deal-impact-piramal-pharma-down-7-on-trades-of-100-mn-shares-on-bse-126112500295_1.html",
-   "src": "business-standard.com",
-   "stocks": [
-    "BSE"
-   ],
-   "pub": "Wed, 25 Nov 2026 12:00:51"
-  },
-  {
-   "title": "ICICI Bank rallies 4%, hits all-time high; market cap nears \u20b912 trillion",
-   "link": "https://www.business-standard.com/markets/news/icici-bank-rallies-4-hits-all-time-high-market-cap-nears-12-trillion-126112500224_1.html",
-   "src": "business-standard.com",
-   "stocks": [
-    "ICICIBANK"
-   ],
-   "pub": "Wed, 25 Nov 2026 10:57:12"
-  },
-  {
-   "title": "Insurance stocks in demand: PB Fintech, Max Life, HDFC Life rally up to 8%",
-   "link": "https://www.business-standard.com/markets/news/insurance-stocks-in-demand-pb-fintech-max-life-hdfc-life-rally-up-to-8-126112500194_1.html",
-   "src": "business-standard.com",
-   "stocks": [
-    "HDFCLIFE"
-   ],
-   "pub": "Wed, 25 Nov 2026 10:14:30"
-  },
-  {
-   "title": "APL Apollo crashes 29% since Tata Steel deal; SG Mart, SG Finserve hit lows",
-   "link": "https://www.business-standard.com/markets/news/apl-apollo-crashes-29-since-tata-steel-deal-sg-mart-sg-finserve-hit-lows-126112500175_1.html",
-   "src": "business-standard.com",
-   "stocks": [
-    "TATASTEEL"
-   ],
-   "pub": "Wed, 25 Nov 2026 09:56:16"
-  },
-  {
-   "title": "Stocks to watch: Tata Motors PV, Hyundai Motor, Lenskart, Gland Pharma",
-   "link": "https://www.business-standard.com/markets/news/stocks-to-watch-tata-motors-pv-hyundai-motor-lenskart-gland-pharma-126112500074_1.html",
-   "src": "business-standard.com",
-   "stocks": [
-    "TMPV"
-   ],
-   "pub": "Wed, 25 Nov 2026 07:56:04"
-  },
-  {
-   "title": "Jio Financial Services vs Reliance vs Jio Platforms shares: Which Mukesh Ambani's stock to buy amid Dalal Street rally?",
-   "link": "https://www.livemint.com/market/stock-market-news/jio-financial-services-vs-reliance-vs-jio-platforms-shares-which-mukesh-ambanis-stock-to-buy-amid-dalal-street-rally-11795586335156.html",
-   "src": "livemint.com",
-   "stocks": [
-    "RELIANCE",
-    "JIOFIN"
-   ],
-   "pub": "Wed, 25 Nov 2026 13:09:23"
-  },
-  {
-   "title": "Tata Steel share price: What should investors do after APL Apollo Tubes  \u20b95,825 crore deal; buy, sell or hold?",
-   "link": "https://www.livemint.com/market/stock-market-news/tata-steel-share-price-what-should-investors-do-after-apl-apollo-tubes-rs-5-825-crore-deal-buy-sell-or-hold-11795585659415.html",
-   "src": "livemint.com",
-   "stocks": [
-    "TATASTEEL"
-   ],
-   "pub": "Wed, 25 Nov 2026 11:27:29"
-  },
-  {
-   "title": "HDFC Bank vs ICICI Bank vs Axis Bank shares: Best banking stock to buy amid Bank Nifty bull run? What market experts say",
-   "link": "https://www.livemint.com/market/stock-market-news/hdfc-bank-vs-icici-bank-vs-axis-bank-shares-best-banking-stock-to-buy-amid-bank-nifty-bull-run-what-market-experts-say-11795581019827.html",
-   "src": "livemint.com",
    "stocks": [
     "HDFCBANK",
-    "ICICIBANK",
-    "AXISBANK"
+    "BHARTIARTL"
    ],
-   "pub": "Wed, 25 Nov 2026 11:09:45"
+   "pub": "Thu, 26 Nov 2026 11:48:34"
   },
   {
-   "title": "Top Nifty Bank gainer today: HDFC Bank shares jump 4% as index soars 2%\u2014 Should you buy or book profit? Experts advice",
-   "link": "https://www.livemint.com/market/stock-market-news/top-nifty-bank-gainer-today-hdfc-bank-shares-jump-4-as-index-soars-2-should-you-buy-or-book-profit-experts-advice-11795580304968.html",
-   "src": "livemint.com",
+   "title": "Rupee recovery spells margin pressure for IT; Infosys stands out: Jefferies",
+   "link": "https://www.business-standard.com/markets/news/rupee-recovery-spells-margin-pressure-for-it-infosys-stands-out-jefferies-126112600362_1.html",
+   "src": "business-standard.com",
    "stocks": [
-    "HDFCBANK"
+    "INFY"
    ],
-   "pub": "Wed, 25 Nov 2026 10:30:12"
+   "pub": "Thu, 26 Nov 2026 11:04:20"
   },
   {
-   "title": "Why APL Apollo Tubes shares crashed 15% today to plunge at 52-week low; downgrade from brokerages after Tata Steel deal",
-   "link": "https://www.livemint.com/market/stock-market-news/why-apl-apollo-tubes-shares-crashed-15-today-to-plunge-at-52-week-low-downgrade-from-brokerages-after-tata-steel-deal-11795579639211.html",
-   "src": "livemint.com",
-   "stocks": [
-    "TATASTEEL"
-   ],
-   "pub": "Wed, 25 Nov 2026 10:25:55"
-  },
-  {
-   "title": "Mahanadi Coalfields IPO allotment to be out today; How to check status on KFin Tech, BSE, NSE | Step-by-step guide",
-   "link": "https://www.livemint.com/market/ipo/mahanadi-coalfields-ipo-allotment-to-be-out-today-how-to-check-status-on-kfin-tech-bse-nse-step-by-step-guide-11795571152208.html",
-   "src": "livemint.com",
+   "title": "BSE up 50% in 2026; can it hit \u20b95,000 in 2027? Here's what brokerages say",
+   "link": "https://www.business-standard.com/markets/news/bse-share-price-up-50-in-2026-can-it-hit-5-000-mark-in-2027-here-s-what-brokerages-say-126112600361_1.html",
+   "src": "business-standard.com",
    "stocks": [
     "BSE"
    ],
-   "pub": "Wed, 25 Nov 2026 08:30:23"
+   "pub": "Thu, 26 Nov 2026 11:04:02"
   },
   {
-   "title": "Top stocks to watch today: Tata Steel, Lenskart, Adani Enterprises, PhysicsWallah, Hindalco, ABB, and 9 others in focus",
-   "link": "https://www.livemint.com/market/stock-market-news/top-stocks-to-watch-today-tata-steel-lenskart-adani-enterprises-physicswallah-hindalco-abb-and-9-others-in-focus-11795571323811.html",
-   "src": "livemint.com",
+   "title": "BSE shares gain 3%, hit 4-month high on HDFC Securities' upgrade to 'Buy'",
+   "link": "https://www.business-standard.com/markets/news/bse-shares-gain-3-hit-4-month-high-on-hdfc-securities-upgrade-to-buy-126112600196_1.html",
+   "src": "business-standard.com",
    "stocks": [
-    "TATASTEEL",
-    "ADANIENT",
-    "HINDALCO"
+    "BSE"
    ],
-   "pub": "Wed, 25 Nov 2026 07:47:04"
+   "pub": "Thu, 26 Nov 2026 10:49:36"
   },
   {
-   "title": "Valuation, debt worries overshadow Tata Steel-APL Apollo deal\u2019s strategic gains",
-   "link": "https://www.livemint.com/market/mark-to-market/tata-steel-apl-apollo-acquisition-deal-review-11795510022151.html",
-   "src": "livemint.com",
+   "title": "SRF, Cipla, Thermax: Who's impacted by US tariffs and who's not; Jefferies answers",
+   "link": "https://www.business-standard.com/markets/news/srf-cipla-thermax-who-s-impacted-by-us-tariffs-and-who-s-not-jefferies-answers-126112600149_1.html",
+   "src": "business-standard.com",
    "stocks": [
-    "TATASTEEL"
+    "CIPLA"
    ],
-   "pub": "Wed, 25 Nov 2026 05:55:43"
+   "pub": "Thu, 26 Nov 2026 10:03:12"
   },
   {
-   "title": "Why are investors betting on Abercrombie's growth story?",
-   "link": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/why-are-investors-betting-on-abercrombies-growth-story/slideshow/136151161.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 11:09:11"
-  },
-  {
-   "title": "India bonds inch higher as oil steadies ahead of RBI verdict",
-   "link": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-inch-higher-as-oil-steadies-ahead-of-rbi-verdict/articleshow/136149265.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 10:59:37"
-  },
-  {
-   "title": "HPE shares crash 17%, stock suffers its worst-ever single-day fall. Here's why",
-   "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/hpe-shares-crash-17-stock-suffers-its-worst-ever-single-day-fall-heres-why/slideshow/136148964.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 10:08:14"
-  },
-  {
-   "title": "Rupee pares FY27 losses, climbs 56 paise to 92.29/USD",
-   "link": "https://economictimes.indiatimes.com/markets/forex/rupee-jumps-23-paise-to-92-62-against-us-dollar-in-early-trade/articleshow/136147947.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 10:00:22"
-  },
-  {
-   "title": "APL Apollo Tubes among 4 Nifty500 stocks closing below VWAP",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/news/apl-apollo-tubes-among-4-nifty500-stocks-closing-below-vwap/slideshow/136147553.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 09:26:10"
-  },
-  {
-   "title": "PB Fintech among 3 Nifty500 stocks flashing RSI uptrend signal",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/news/pb-fintech-among-3-nifty500-stocks-flashing-rsi-uptrend-signal/slideshow/136147231.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 09:07:48"
-  },
-  {
-   "title": "Negative Breakout: These 4 stocks dropped below their 200 DMAs",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/news/negative-breakout-these-4-stocks-dropped-below-their-200-dmas/slideshow/136147014.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 09:02:00"
-  },
-  {
-   "title": "Gold Silver Rates Live Updates: Gold falls 1%, silver drops 2% on MCX. Check key levels and estimates",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/live-blog/live-updates-gold-rate-today-25th-november-24k-22k-20k-18-carat-mcx-gold-silver-price-in-delhi-hyderabad-chennai-bengaluru-citywise/liveblog/136146334.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 08:19:04"
-  },
-  {
-   "title": "India pension funds pivot to bonds as equity exposure nears cap",
-   "link": "https://economictimes.indiatimes.com/markets/bonds/india-pension-funds-pivot-to-bonds-as-equity-exposure-nears-cap/articleshow/136146220.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 08:12:38"
-  },
-  {
-   "title": "Dollar takes breather ahead of US data on Fed path; Aussie jumps on CPI",
-   "link": "https://economictimes.indiatimes.com/markets/forex/forex-news/dollar-takes-breather-ahead-of-us-data-on-fed-path-aussie-jumps-on-cpi/articleshow/136145689.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 07:28:10"
-  },
-  {
-   "title": "Gold ticks lower ahead of US inflation data",
-   "link": "https://economictimes.indiatimes.com/markets/commodities/news/gold-ticks-lower-ahead-of-us-inflation-data/articleshow/136145643.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 07:26:22"
-  },
-  {
-   "title": "Stock Market Highlights: Sensex soars 1,502 pts, Nifty ends above 25,800; bank, pharma indices jump up to 2%",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-tata-steel-hindalco-share-price-25-november-2026/liveblog/136145716.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 07:11:52"
-  },
-  {
-   "title": "Market timers get schooled as S&P 500 swings rip up playbooks",
-   "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/market-timers-get-schooled-with-swings/articleshow/136145370.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 07:03:27"
-  },
-  {
-   "title": "Goldman Sachs, SocGen buy Rs 920 crore stake in Lenskart",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/news/goldman-sachs-socgen-buy-rs-920-crore-stake-in-lenskart/articleshow/136145273.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 06:56:01"
-  },
-  {
-   "title": "Global Market Today: Asian stocks fall as AI trade doubts resurface",
-   "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-today-asian-stocks-fall-as-ai-trade-doubts-resurface/articleshow/136145030.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 06:27:44"
-  },
-  {
-   "title": "Nasdaq, S&P 500 end lower as investors assess Jensen Huang's return to Nvidia",
-   "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/nasdaq-sp-500-end-lower-as-investors-assess-jensen-huangs-return-to-nvidia/articleshow/136141893.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Wed, 25 Nov 2026 02:39:28"
-  },
-  {
-   "title": "PE/VC investments in India surge to USD 8.7 billion in October, highest monthly level in five years: EY-IVCA report",
-   "link": "https://economictimes.indiatimes.com/markets/stocks/news/pe/vc-investments-in-india-surge-to-usd-8-7-billion-in-october-highest-monthly-level-in-five-years-ey-ivca-report/articleshow/136132831.cms",
-   "src": "economictimes.indiatimes.com",
-   "stocks": [],
-   "pub": "Tue, 24 Nov 2026 19:17:50"
+   "title": "Eicher, 2 other stocks flashing bullish signals on tech charts: Ajit Mishra",
+   "link": "https://www.business-standard.com/markets/news/eicher-2-other-stocks-flashing-bullish-signals-on-tech-charts-ajit-mishra-126112600051_1.html",
+   "src": "business-standard.com",
+   "stocks": [
+    "EICHERMOT"
+   ],
+   "pub": "Thu, 26 Nov 2026 07:52:47"
   }
  ],
- "news_time": "25-Nov-2026 16:16 IST"
+ "news_time": "26-Nov-2026 18:09 IST"
 }
